@@ -19,10 +19,10 @@ Python (Simple HTTPServer)
 
 <b>How do I Prevent that?</b>
 
-There is no bullet proof. Since GET is widely used and many different parameters and applications using many strings around.
+There is no silver bullet, since GET is widely used and many different parameters and applications using many strings around.
 
 1) Deep packet inspection your navigation and proxy traffic, mirroring the traffic and creating anomaly rules. 
 2) Collect powershell logs. Monitor your endpoints and avoid permitting executing powershell stuff (if is there no legitimate reason for that.)
-
+3) Netflow based solutions also user behaviour analysis for unusual transfer data. 
 
 This code was produced using python 3.6.7. <br>
