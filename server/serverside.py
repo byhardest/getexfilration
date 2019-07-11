@@ -59,9 +59,12 @@ class S(BaseHTTPRequestHandler):
                 
                 print("({}/{} - {}%) Receiving data from {} via headers: {} {}".format(counter, fileparts, round((counter / fileparts *100),2),self.client_address[0], h, self.headers[h]))
 
+                if counter == fileparts:
+                    counter = 0
+
                 with open(os.getcwd()+"/out/"+filename, 'ab+') as crypt:
                     crypt.write(base64.b64decode(self.headers[h]))
- 
+                
 
         self._set_response()
         ##fake response##
